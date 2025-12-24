@@ -3,6 +3,7 @@ import React, { useState } from 'react';
 import { ViewState, Language } from './types';
 import { HomePage } from './components/HomePage';
 import { SpamExperience } from './components/SpamExperience';
+import { VirusExperience } from './components/VirusExperience';
 
 const App: React.FC = () => {
   const [view, setView] = useState<ViewState>('HOME');
@@ -11,10 +12,18 @@ const App: React.FC = () => {
 
   const handleWordSelection = (word: string) => {
     // Check against SPAM in all languages
-    if (word === 'SPAM' || word === '垃圾邮件' || word === '午餐肉' || word === 'スパム') {
+    if (['SPAM', '垃圾邮件', '午餐肉', 'スパム'].includes(word)) {
       setIsTransitioning(true);
       setTimeout(() => {
         setView('SPAM');
+        setIsTransitioning(false);
+      }, 800);
+    } 
+    // Check against VIRUS in all languages
+    else if (['VIRUS', '病毒', 'ウイルス'].includes(word)) {
+      setIsTransitioning(true);
+      setTimeout(() => {
+        setView('VIRUS');
         setIsTransitioning(false);
       }, 800);
     }
@@ -45,6 +54,12 @@ const App: React.FC = () => {
         )}
         {view === 'SPAM' && (
           <SpamExperience 
+            onBackToHome={handleBackToHome} 
+            language={language}
+          />
+        )}
+        {view === 'VIRUS' && (
+          <VirusExperience 
             onBackToHome={handleBackToHome} 
             language={language}
           />

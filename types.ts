@@ -8,10 +8,17 @@ export enum PhaseId {
   Summary = 5
 }
 
+export enum VirusPhaseId {
+  Bio = 0,
+  Computer = 1,
+  Security = 2,
+  Summary = 3
+}
+
 export type Language = 'EN' | 'JP' | 'CN';
 
 export interface PhaseData {
-  id: PhaseId;
+  id: PhaseId | VirusPhaseId;
   title: string;
   year: string;
   description: string;
@@ -24,4 +31,4 @@ export interface InteractiveElementProps {
   language: Language;
 }
 
-export type ViewState = 'HOME' | 'SPAM';
+export type ViewState = 'HOME' | 'SPAM' | 'VIRUS';

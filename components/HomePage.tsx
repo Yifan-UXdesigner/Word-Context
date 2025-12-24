@@ -151,8 +151,12 @@ export const HomePage: React.FC<HomePageProps> = ({ onSelectWord, language, setL
 
   const getWordStyle = (word: string) => {
     // Special highlight for 'SPAM'
-    if (word === 'SPAM' || word === 'スパム' || word === '午餐肉') {
+    if (['SPAM', 'スパム', '午餐肉'].includes(word)) {
         return 'text-spam-yellow font-black scale-110 drop-shadow-[0_0_10px_rgba(255,204,0,0.8)] hover:drop-shadow-[0_0_20px_rgba(255,204,0,1)] animate-pulse';
+    }
+    // Special highlight for 'VIRUS'
+    if (['VIRUS', 'ウイルス', '病毒'].includes(word)) {
+        return 'text-red-600 font-black scale-110 drop-shadow-[0_0_10px_rgba(255,0,0,0.8)] hover:drop-shadow-[0_0_20px_rgba(255,0,0,1)] animate-pulse hover:text-red-500';
     }
     return 'text-neutral-500 hover:text-white hover:scale-125 transition-all duration-200';
   };

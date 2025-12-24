@@ -7,7 +7,7 @@
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Courier+Prime:ital,wght@0,400;0,700;1,400&family=VT323&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Courier+Prime:ital,wght@0,400;0,700;1,400&family=VT323&family=Montserrat:wght@300;400;600;800&display=swap" rel="stylesheet">
     <script>
       tailwind.config = {
         theme: {
@@ -15,6 +15,7 @@
             fontFamily: {
               mono: ['"Courier Prime"', 'monospace'],
               digital: ['"VT323"', 'monospace'],
+              sans: ['"Montserrat"', 'sans-serif'],
             },
             colors: {
               'spam-blue': '#002F6C',
@@ -24,11 +25,17 @@
               'win-teal': '#008080',
               'win-gray': '#C0C0C0',
               'alert-red': '#FF0000',
+              'virus-red': '#8B0000',
+              'virus-dark': '#0F0F0F',
+              'tech-green': '#00FF41',
+              'cyber-blue': '#00F0FF',
             },
             animation: {
               'scanline': 'scanline 8s linear infinite',
               'glitch': 'glitch 0.3s infinite',
               'float': 'float 6s ease-in-out infinite',
+              'pulse-slow': 'pulse 3s cubic-bezier(0.4, 0, 0.6, 1) infinite',
+              'spread': 'spread 2s ease-out forwards',
             },
             keyframes: {
               scanline: {
@@ -46,6 +53,10 @@
               float: {
                 '0%, 100%': { transform: 'translateY(0)' },
                 '50%': { transform: 'translateY(-20px)' },
+              },
+              spread: {
+                '0%': { strokeDasharray: '0, 1000' },
+                '100%': { strokeDasharray: '1000, 0' },
               }
             }
           }
@@ -104,7 +115,7 @@
 }
 </script>
 </head>
-  <body class="bg-neutral-900 text-vintage-cream overflow-x-hidden">
+  <body class="bg-neutral-900 text-vintage-cream overflow-x-hidden font-sans">
     <div id="root"></div>
   </body>
 </html>

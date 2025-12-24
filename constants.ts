@@ -1,7 +1,7 @@
 
-import { PhaseData, PhaseId, Language } from './types';
+import { PhaseData, PhaseId, VirusPhaseId, Language } from './types';
 
-const PHASES_EN: PhaseData[] = [
+export const PHASES_EN: PhaseData[] = [
   {
     id: PhaseId.Food,
     title: "Phase 1: Physical Food Product",
@@ -46,7 +46,7 @@ const PHASES_EN: PhaseData[] = [
   }
 ];
 
-const PHASES_JP: PhaseData[] = [
+export const PHASES_JP: PhaseData[] = [
   {
     id: PhaseId.Food,
     title: "フェーズ 1: 物理的な食品",
@@ -91,7 +91,7 @@ const PHASES_JP: PhaseData[] = [
   }
 ];
 
-const PHASES_CN: PhaseData[] = [
+export const PHASES_CN: PhaseData[] = [
   {
     id: PhaseId.Food,
     title: "第一阶段：实体食品",
@@ -136,12 +136,115 @@ const PHASES_CN: PhaseData[] = [
   }
 ];
 
+// --- VIRUS DATA ---
+
+export const VIRUS_PHASES_EN: PhaseData[] = [
+  {
+    id: VirusPhaseId.Bio,
+    title: "Phase 1: Biological Virus",
+    year: "Origins",
+    description: "Biological viruses spread through physical contact or airborne particles, causing epidemics. The virus's speed and reach vary depending on the environment.",
+    colorTheme: "text-red-500"
+  },
+  {
+    id: VirusPhaseId.Computer,
+    title: "Phase 2: Computer Virus",
+    year: "1980s–1990s",
+    description: "Computer viruses spread through malicious software or email attachments, causing system crashes or data theft. Protection measures include anti-virus software.",
+    colorTheme: "text-tech-green"
+  },
+  {
+    id: VirusPhaseId.Security,
+    title: "Phase 3: Digital Security Threat",
+    year: "2000s–Present",
+    description: "Digital security threats like ransomware or phishing are more pervasive than ever. They compromise personal data, privacy, and financial information.",
+    colorTheme: "text-cyber-blue"
+  },
+  {
+    id: VirusPhaseId.Summary,
+    title: "Summary",
+    year: "Evolution",
+    description: "The word 'Virus' has evolved from referring to biological infections to becoming a symbol of digital threats in the cyber world.",
+    colorTheme: "text-white"
+  }
+];
+
+export const VIRUS_PHASES_JP: PhaseData[] = [
+  {
+    id: VirusPhaseId.Bio,
+    title: "フェーズ 1: 生物学的ウイルス",
+    year: "起源",
+    description: "生物学的ウイルスは、物理的な接触や空気中の粒子を介して広がり、流行を引き起こします。その拡散速度は環境によって異なります。",
+    colorTheme: "text-red-500"
+  },
+  {
+    id: VirusPhaseId.Computer,
+    title: "フェーズ 2: コンピュータウイルス",
+    year: "1980年代–1990年代",
+    description: "コンピュータウイルスは、悪意のあるソフトウェアやメールの添付ファイルを介して広がり、システムのクラッシュやデータ盗難を引き起こします。",
+    colorTheme: "text-tech-green"
+  },
+  {
+    id: VirusPhaseId.Security,
+    title: "フェーズ 3: デジタルセキュリティの脅威",
+    year: "2000年代–現在",
+    description: "ランサムウェアやフィッシングのようなデジタルセキュリティの脅威は、ますます蔓延しています。これらは個人データやプライバシーを侵害します。",
+    colorTheme: "text-cyber-blue"
+  },
+  {
+    id: VirusPhaseId.Summary,
+    title: "要約",
+    year: "進化",
+    description: "「ウイルス」という言葉は、生物学的な感染症から、サイバー世界におけるデジタルな脅威の象徴へと進化しました。",
+    colorTheme: "text-white"
+  }
+];
+
+export const VIRUS_PHASES_CN: PhaseData[] = [
+  {
+    id: VirusPhaseId.Bio,
+    title: "第一阶段：生物病毒",
+    year: "起源",
+    description: "生物病毒通过身体接触或空气微粒传播，引起流行病。病毒的传播速度和范围因环境而异。",
+    colorTheme: "text-red-500"
+  },
+  {
+    id: VirusPhaseId.Computer,
+    title: "第二阶段：计算机病毒",
+    year: "1980年代–1990年代",
+    description: "计算机病毒通过恶意软件或电子邮件附件传播，导致系统崩溃或数据被盗。保护措施包括杀毒软件。",
+    colorTheme: "text-tech-green"
+  },
+  {
+    id: VirusPhaseId.Security,
+    title: "第三阶段：数字安全威胁",
+    year: "2000年代–至今",
+    description: "勒索软件或网络钓鱼等数字安全威胁比以往任何时候都更加普遍。它们危及个人数据、隐私和财务信息。",
+    colorTheme: "text-cyber-blue"
+  },
+  {
+    id: VirusPhaseId.Summary,
+    title: "总结",
+    year: "演变",
+    description: "“病毒”一词已从指代生物感染演变为网络世界中数字威胁的象征。",
+    colorTheme: "text-white"
+  }
+];
+
 export const getPhases = (lang: Language): PhaseData[] => {
   switch(lang) {
     case 'JP': return PHASES_JP;
     case 'CN': return PHASES_CN;
     default: return PHASES_EN;
   }
+};
+
+export const getVirusPhases = (lang: Language): PhaseData[] => {
+    switch(lang) {
+        case 'JP': return VIRUS_PHASES_JP;
+        case 'CN': return VIRUS_PHASES_CN;
+        default: return VIRUS_PHASES_EN;
+    }
 };
 
 const WORDS_EN = [
