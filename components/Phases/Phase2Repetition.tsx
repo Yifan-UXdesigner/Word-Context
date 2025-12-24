@@ -1,7 +1,11 @@
+
 import React from 'react';
 import { InteractiveElementProps } from '../../types';
+import { INTERACTIVE_TEXT } from '../../constants';
 
-export const Phase2Repetition: React.FC<InteractiveElementProps> = ({ scrollProgress }) => {
+export const Phase2Repetition: React.FC<InteractiveElementProps> = ({ scrollProgress, language }) => {
+  const interactive = INTERACTIVE_TEXT[language];
+
   // Generate a grid of SPAMs
   const spams = Array.from({ length: 40 }).map((_, i) => ({
     id: i,
@@ -34,7 +38,7 @@ export const Phase2Repetition: React.FC<InteractiveElementProps> = ({ scrollProg
               textShadow: '2px 2px 0px rgba(0,0,0,0.5)'
             }}
           >
-            SPAM
+            {interactive.floatingWord}
           </div>
         );
       })}
@@ -45,7 +49,7 @@ export const Phase2Repetition: React.FC<InteractiveElementProps> = ({ scrollProg
           className="text-9xl font-black text-transparent stroke-white stroke-2 opacity-20"
           style={{ WebkitTextStroke: '2px rgba(100, 255, 100, 0.3)' }}
         >
-          SPAM
+          {interactive.floatingWord}
         </h1>
       </div>
     </div>

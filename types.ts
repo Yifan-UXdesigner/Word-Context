@@ -1,3 +1,4 @@
+
 export enum PhaseId {
   Food = 0,
   Repetition = 1,
@@ -6,6 +7,8 @@ export enum PhaseId {
   Noise = 4,
   Summary = 5
 }
+
+export type Language = 'EN' | 'JP' | 'CN';
 
 export interface PhaseData {
   id: PhaseId;
@@ -18,4 +21,7 @@ export interface PhaseData {
 export interface InteractiveElementProps {
   isActive: boolean;
   scrollProgress: number; // 0 to 1 within the phase
+  language: Language;
 }
+
+export type ViewState = 'HOME' | 'SPAM';
